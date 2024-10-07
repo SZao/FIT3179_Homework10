@@ -1,9 +1,9 @@
 {
     "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
     "title": "International Travel Insights: Spending Trends by Purpose ",
-    "width": 600,
-    "height": 500,
-    "data": {"url": "https://raw.githubusercontent.com/SZao/FIT3179/refs/heads/main/Assignment2/data/International_travel_spending.csv"},
+    "width": 700,
+    "height": 550,
+    "data": {"url": "https://raw.githubusercontent.com/SZao/FIT3179_Homework10/refs/heads/main/International_travel_spending.csv"},
     "params": [
         {
             "name": "Year_filter",
@@ -32,7 +32,7 @@
         {
             "mark": {
                 "type": "text",
-                "radiusOffset": 30,
+                "radiusOffset": 28,
                 "fontSize": 13,
                 "fill": "black"
             },
