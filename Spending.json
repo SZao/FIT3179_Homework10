@@ -1,0 +1,63 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "title": "International Travel Insights: Spending Trends by Purpose ",
+    "width": 600,
+    "height": 500,
+    "data": {"url": "https://raw.githubusercontent.com/SZao/FIT3179/refs/heads/main/Assignment2/data/International_travel_spending.csv"},
+    "params": [
+        {
+            "name": "Year_filter",
+            "value": "June 2023",  
+            "bind": {
+                "input": "select",
+                "options": ["June 2023", "June 2024"],
+                "labels": ["June 2023", "June 2024"],
+                "name": "Year: "
+            }
+        }
+    ],
+    "transform": [
+        {
+            "filter": "datum.Date == Year_filter"  
+        }
+    ],
+    "layer": [
+        {
+            "mark": {
+                "type": "arc",
+                "innerRadius": 20,
+                "stroke":"white"
+            }
+        },
+        {
+            "mark": {
+                "type": "text",
+                "radiusOffset": 30,
+                "fontSize": 13,
+                "fill": "black"
+            },
+            "encoding": {
+                "text": {"field": "Purpose", "type": "nominal"}
+            }
+        }
+    ],
+    "encoding": {
+        "theta": {"field": "Spending", "type": "quantitative", "stack": true},
+        "radius": {"field": "Spending", "scale": {"type": "sqrt", "zero": true, "rangeMin": 20}},
+        "color": {
+            "field": "Purpose",
+            "type": "nominal",
+            "scale": {
+                "domain": ["Business", "Education", "Employment", "Holiday", "Other Reason", "Visiting friends and relatives"],
+                "range": ["orange", "purple", "grey", "darkblue", "yellow", "green"]
+            },
+            "legend": {"title": "Purpose"}
+        },
+        "tooltip": [
+            {"field": "Purpose", "type": "nominal", "title": "Purpose"},
+            {"field": "Spending", "type": "quantitative", "title": "Spending","format": "$,.0f"},
+            {"field": "Date", "type": "ordinal", "title": "Year"}
+        ]  
+    }
+   
+}

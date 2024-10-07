@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <!-- Import Vega & Vega-Lite -->
+    <script src="https://cdn.jsdelivr.net/npm/vega@5.20.2"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-lite@5.1.0"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-embed@6.17.0"></script>
+    
+    <!-- Link to CSS file -->
+    <link rel="stylesheet" type="text/css" href="style.css" media="all">
+    
+    <title>Tourism in Australia</title>
+</head>
+<body>
+  
+    <h1>Tourism in Australia</h1>
+
+    <div class="container"></div>
+        <div class="text"></div>
+            <h2>Travel by State</h2>
+            <p>The travel state chart provides insights into the number of visitors to each state. It compares tourism trends across Australia and helps identify popular destinations.</p>
+        </div>
+        <div id="travel_state" class="chart"></div>
+    </div>
+    
+    <div class="container">
+        <div class="text">
+            <h2>Purpose to Australia and Spending Overview</h2>
+            <p>This chart displays the spending habits of tourists in Australia. It includes data on spending by purpose and provides insights into the most popular tourist activities and their corresponding expenditures.</p>
+        </div>
+        <div id="spending" class="chart"></div>
+    </div>
+
+    <div class="container">
+        <div class="text"></div>
+            <h2>Dot Range Chart</h2>
+            <p>The dot range chart visualizes the distribution of tourist visits over different periods. It highlights peak seasons and trends in visitor numbers.</p>
+        </div>
+        <div id="dot_range" class="chart"></div>
+    </div>
+
+    <div class="container">
+        <div class="text">
+            <h2>Heat Map</h2>
+            <p>This heat map illustrates the intensity of tourist visits across different regions in Australia. It provides a clear visual representation of the most visited areas.</p>
+        </div>
+        <div id="heat_map" class="chart"></div>
+    </div>
+
+
+    <script type="text/javascript">
+        // Specifying the paths to the Vega-Lite JSON specifications
+        var spendingSpec = "json/Spending.json";
+        var dotRangeSpec = "json/dot_range.json";
+        var heatMapSpec = "json/heat_map.json";
+        var travelStateSpec = "json/travel_state.json";
+
+        // Embedding each chart
+        vegaEmbed('#spending', spendingSpec).catch(console.error);
+        vegaEmbed('#dot_range', dotRangeSpec).catch(console.error);
+        vegaEmbed('#heat_map', heatMapSpec).catch(console.error);
+        vegaEmbed('#travel_state', travelStateSpec).catch(console.error);
+    </script>
+
+</body>
+</html>
